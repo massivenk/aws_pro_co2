@@ -1,0 +1,2 @@
+Every action that is taken on AWS account is via an API. All API endpoints support https and use TLS encryption during transmission to protect the request. 
+    API request are authenticated and authorised  via AIM ad recorded by AWS CloudTrail as it crosses teh AWS API interface
