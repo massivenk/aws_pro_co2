@@ -38,4 +38,4 @@ Global Condition Keys [start with aws: prefix]
     https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia
 
 Advanced Policy Elements
-   NotPrincipal (Separation of Roles) , NotAction (SCP Policy) , NotResource (Resource Protection) - this shortens the policy can be used with both the Allow or Deny Effect. Recommendation is to use Deny Action Effect to allow the Not-Condition
+   NotPrincipal (Separation of Duties) , NotAction (SCP Policy) , NotResource (Resource Protection) - this shortens the policy can be used with both the Allow or Deny Effect. Recommendation is to use Deny Action Effect to allow the Not-Condition
