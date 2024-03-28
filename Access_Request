@@ -31,4 +31,11 @@ IAM Condition Keys
     iam:PolicyARN                 : attach a spcific customer managed policy to only a certain IAM group and role
     iam:ResourceTag               : Permissions should be assigned only to certian IAM role
 
-Global Condition Keys
+Global Condition Keys [start with aws: prefix]
+    AWS Services support global Condition key
+    Who made what request  : if there is no service role configured , request context can include aws:CalledVia key
+    the aws:CalledVia key include list of each service that made a request on the Principals behalf
+    https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-calledvia
+
+Advanced Policy Elements
+   NotPrincipal (Separation of Roles) , NotAction (SCP Policy) , NotResource (Resource Protection) - this shortens the policy can be used with both the Allow or Deny Effect. Recommendation is to use Deny Action Effect to allow the Not-Condition
