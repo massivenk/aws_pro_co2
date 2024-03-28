@@ -1,0 +1,41 @@
+Principle of Least Priviledge
+      Grant access as needed
+      Separation of duties
+      Avoid long-term credentials
+
+IAM request Context  :  three main pieces of logic that define what is in the policy and how the policy actually works leading to authentication and authorization
+         Principal (subject) -  user , role , external users , application /service that sends a request with a  policy associated with the principal
+         Action    (verb)   - what the principal is attempting to do
+         Resource  (object) -  object which the actions or operations are performed
+   Identity-Based Policy a document (json) which is associated with the subject detailing the permissions.  Evaluation of the documents are done when request has been made
+        Three types of documents (policies)
+             AWS Managed
+             Customer Managed
+             Inline
+   Policies (documents) also have conditions associated to the actions : condition has operators
+         String  : StringsEquals [exact match case sensitive] , StringNotEquals [Negated matching] , StringsEqualsIgnoreCase [exact match ignore case] , StingLike
+         Numeric
+         Date and  time
+         Boolean
+         Binary
+         Ip Address
+         Amazon resource name - for some services
+         IfExist
+         Null check
+  Policy types
+         identity-based policy
+         resource-based policy
+         organisation service control policy
+         iam boundary policy
+         access control list 
+         session policies
+   Guardrails  : used to restrict permissions
+         SCP , Permissions Boundary , Session Policies
+   Grants : used to grant access
+         Identity-based , Resource-based , ACL 
+
+ Permissions rules within an account , requires SCP and Identity-based policy and/or resource-based policy
+            for cross account permissions you require SCP and Identity policy , identity policy and resource-based policy
+
+Presence of an SCP , IAM permissions boundary and Session policy can overide an allow with an implicit deny
+Differentiate between role-based and attribute-based access controls pillar
