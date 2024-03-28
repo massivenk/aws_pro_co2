@@ -16,3 +16,19 @@ Policy (document)
 
 Reource (object)
    What service is being asked to be accesed 
+
+IAM PassRole [to an AWS Service]
+  aws services (Principal {Who} ) that require permissions via a role to perform actions
+    iam:PassRole action is required in the IAM policy [conditions are also supported to further restrict how PassRole is used]
+
+IAM Condition Keys
+
+    iam:AssociatedResourceArn     : Pass a role that is associated with a certain arn
+    iam:AWSServiceName            : Roles that need to be attached to only specific Service
+    iam:OrganizationPolicyId      : Users are also required to be authenticated via SCP
+    iam:PassedtoService           : ServiceRole should be created and passed to only a specific AWS service
+    iam:PermissionsBoundary       : Guardrail need to be configured for policy attached to an IAM group/Role
+    iam:PolicyARN                 : attach a spcific customer managed policy to only a certain IAM group and role
+    iam:ResourceTag               : Permissions should be assigned only to certian IAM role
+
+Global Condition Keys
