@@ -1,0 +1,41 @@
+Security Token Service (STS)
+
+  Identity Federation :  use of external Idp to gramt access to AWS. Options Corporate Identity and Web Identity federation
+  Cross-Account access:  Provide access to other AWS accounts define user in one account and use those identities to access aws resources in another aws account 
+  Instance Profile    :  Provide EC2 instance and hosted application to AWS resources via an attached role
+
+Assuming a Role 
+  uses STS a global service API request
+  provides temporary credentials which consist of :  Access Key ID , secret access key and security token
+  Additional optional parameters can be added to futher secure the AssumeRole request
+           DurationSeconds     - time duration default is 1 hour supported for upto 12 hours
+           Policy              -  permission inline 
+           PolicyArns.member.N - managed policy which should exist in the same account as the role
+           Tags.memeber.N      - session tags that you want to pass with the role
+           SerialNumber and TokenCode - include MFA information
+
+Managing Role Sessions
+  all users assumeing the role have the same permissions
+  role session permission  further restrict overall permissions
+  identity-based policies and resource-based policies , further restrict the  assume role permissions providing Effective Permissions
+
+Federated Users
+  Authenticated AWS account through other identity provider
+  Identity federation is system of trust between two parties for authentication
+  IdP responsible for authentication
+  Service Provider (AWS) responsible for authorization
+  Open Identity Standards [ SMAL 2.0 , OIDC and OAuth 2.0 ]
+
+IAM Identity Center  [ SSO using external IdP ]
+    Steps (Authenthication and Authorization)
+    AssumeRole with permissions policy need to exist in the AWS for access to resources
+       A user in your organization uses a client app to request authentication from your organization's IdP.
+       The IdP authenticates the user against your organization's identity store.
+       The IdP constructs a SAML assertion with information about the user and sends the assertion to the client app.
+       The client app calls the AWS STS AssumeRoleWithSAML API, passing the ARN of the SAML provider, the ARN of the role to assume, and the SAML assertion from IdP.
+       The API response to the client app includes temporary security credentials.
+       The client app uses the temporary security credentials to call Amazon S3 API operations (resource).
+
+IAM    PermissionsSet roles Managed or Custom to authenticate to AWS
+
+AWS Cognito WebBased Federation GetId API call - AssumeRoleWebIdentity
