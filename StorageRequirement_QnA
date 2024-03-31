@@ -1,0 +1,15 @@
+How often and how quickly do you need to access your data? AWS offers storage options and pricing tiers for frequently accessed, less frequently accessed, and infrequently accessed data.
+
+Does your data store require high IOPS or throughput? AWS provides categories of storage that are optimized for performance and throughput. Understanding IOPS and throughput requirements will help you provision the right amount of storage and avoid overpaying.
+
+What storage access protocols are required? Pre-existing applications are often developed based on specific operating systems. The operating system can affect the access protocol. For example, Linux-based applications that require file system access usually require NFS. Windows-based applications require SMB as the protocol. 
+
+How critical (durable) is your data? Critical or regulated data needs to be retained at almost any expense and tends to be stored for a long time.
+
+How sensitive is your data? Highly sensitive data must be protected from accidental and malicious changes, not only data loss or corruption. Durability, cost, and security are equally important to consider.
+
+How large is your dataset? Knowing the total size of the dataset helps in estimating storage capacity and cost.
+
+How transient is your data? Transient data is short-lived and typically does not require high durability. (Note: Durability refers to average annual expected data loss.) Clickstream and Twitter data are good examples of transient data.
+
+How much are you prepared to pay to store the data? Setting a budget for data storage will inform your decisions about storage options.
