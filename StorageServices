@@ -1,0 +1,92 @@
+Block Storage
+   Low latecny storage for each hose.
+   Direct-attached storage (DAS)
+   Storage Area Network (SAN)
+   EBS Elastic Block Storage attaches to EC2 , requires OS or application to manage storage access
+File Storage
+   Shared File storage uses Network Attached Storage (NAS)
+   File storage for large conent repository , development environment , media stores or home directory
+   5 different services , 2 categories
+       Amazon native file storage
+       Amazon FSx(file-system-x)
+   Can create self managed file share using EC2 instances attached EBS
+      1. Amazon Elastic File System (Amazon EFS) - multi-az file storage that uses NFS access protocol
+      2. Amazon FSx for Lustre built using Lustre file system designed for High performance computing and ML workloads. uses POSIX-compliance access protocol
+      3. Amazon FSx for Windows File Server  , build using Windows File Server. Access protocol is SMB designed for Microsoft applications and windows workloads
+      4. Amazon FSx for Netapp ONTAP uses NetApp ONTAP operating system provides both Netapp Block and file storage access protocol iSCSI for block storag , NFS and SMB for file storage
+      5. Amazon FSx for OpenZFS fully managed shared file storage built on OpenZFS file system. Can migrate on-prem OpenZFS storage to Amazon OpenZFS storage with minimal effort , uses same access protocol.
+Object Storage
+    Cloud Native application typicall uses object storage for scale and metadata characteristic
+    Importing of existing data stores for analytics , backup and archive
+    Amazon Simple Storage Service (S3) comes with different storage class or tiers. stores snapshots and backup of data stored in other storage services such as EBS and EFS
+
+Edge and hybrid Cloud Storage Services
+    edge computing and storage solutions for remote or disconnected locations and hybrid solutions to connect on-prem infrastructure to storage services on AWS Cloud
+
+        EDGE - local compute and storage
+             includes AWS Snow family of products
+                   1. AWS Snowcball Edge
+                      a. Snowball edge , edge computing , data migration and edge storage device
+                          Benefits : data collection , machine learning and processing , storage for intermittent connectivity
+                      a.1) Options Storage Optimised , high storage capacity
+                             Compute Optimised , more available vCPU with lower storage capacity
+                  2. AWS Snowcone 
+                      a. smallest member of snow family
+                          ruggedized , secure and purpose built for use outside of traditional data center
+                  3. AWS Snowmobile service
+                         a. exabyte-scale data transfer service move large data to AWS
+                         b. Can transfer up to 100 PB per snowmobile , 45-foot long reggedised shipping container pulled by semitrailer truck
+                         c. Can migrate a complete data center
+   Hybrid
+           on-prem cloud storage as part of Outpost implementation utilising EBS and S3 storage service
+           on-prem gateways - provides integration of on-prem IT environment with AWS Storage infrastructure
+                    use cases :  move backups to cloud , use on-prem file share backed by cloud storage , provide low latency access to data in AWS for on-prem applicaitons (local caching for read and writes , improve latency)
+              Storage Gateway types
+                   1. Amazon S3 File Gateway : connect to cloud to store application data files and backup images offers SMB and NFS based access with local caching on Amazon S3
+                   2. Amazon FSx File Gateway:  for Windows File server , unstructured or file data eithe SMB-based or business application requires on-prem access to meet low latency requirements
+                   3. Volume Gateway : iSCSI block storage for on-prem application , stores and manages on-prem data in Amazon S3. Operates in cache mode or stored mode
+                   4. Tape Gateway : replaces physical tapes on-prem with virtual tapes in AWS , does not change existing backup workflow. Support all leading backup applications and caches virtual tapes for low latency data access
+
+ Data transfer and Migration services
+          Designed to copy and transfer on-prem data to  and from the core AWS storage services in the AWS Cloud
+                  1. File transfer service (AWS Transfer Family)
+                      a. Fully secure file transfer directly to into S3 or EFS
+                      b. Supported protocols  : Secure File Transfer Protocol (SFTP) , File Transfer Protocol (FTP)  , File Transfer Protocol over SSL (FTPS)
+                      c. Migrates the file transfer to AWS without the change in the application
+                      d. Integrates with authentication system
+                      e. Provides DNS routing with Route 53
+                  2. Data Syncronisation and online service (DataSync)
+                      a. Online data transfer , simplifies , automate and accelerates
+                      b. Moves data between on-prem and aws storage services 
+                           b.1) Migrate active datasets
+                           b.2) Archive data to AWS for cost saving
+                           b.3) Replicate data for business continuity
+                           b.4) Transfer data to cloud for analytics and processing
+                   3. DataSync integrates with
+                         NFS share  , SMB Shares , selft managed object store , AWS Snowcone , S3 , EFS and FSx for Windows service file system
+                   4. Offline data transfer  : AWS Snow Family
+                   5. Migration Services
+                       Application Migration Services (AWS MGN) includes CloudEndure migration (Lift and Shift [Rehost] )
+                       AWS MGN continuously replicates source server to AWS Account , once ready to migrate in automatically converts and launches server on AWS 
+
+ Data Protection Services
+           provides data redundancy and disaster requirement needs. Offers stand alone options and integrated core storage services
+                   1. Backup and Archive (AWS Backup)
+                       centralise and automate data protection account AWS services , fully managed policy based service
+                       supports regulatory compliance , business policy for data protection
+                       Organization deployment supports central policies for data protection (Configure , manage and govern backup activities)
+                       Supported resources that can use AWS Backup :  EC2 , EBS , RDS, DynamoDB , Neptunes , DocumentDB , EFS , FSx , Storage Gateway Volumes  , S3 and VMware Cloud
+                    2. Snapshot
+                        Create backup compies of your data , stored in S3
+                        Incremental copies of data
+                    3. Replication can be implemented between Availability Zone withing AWS Region or between AWS Regions supported services S3 , RDS 
+                    4. Disaster recovery service (CloudEndure Disaster Recovery)
+                         service for on-prem server and application
+                         continuosly replicate your on-prem workload into aws staging area in your AWS account with preferred region
+                         replication includes : operation system , system state configuration , databases , applications and files
+                         during recovery you can instruct automatic launch on the aws account
+
+
+
+
+      
