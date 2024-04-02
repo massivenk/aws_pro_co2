@@ -1,0 +1,27 @@
+Elastic Block Store (EBS)
+       two types of Block Storage - Instance Store and Elastic Block Storage (EBS)
+       FSx NetApp ONTAP supports EBS with NetApp API calls and management API
+   Instance Store (Ephemeral Storage) - use case
+       Temporary storage that changes frequently , buffers , caches , scratch data and other temporary content
+       Data replicated across fleet of instances , loadbalanced pool of web server
+       Non persistance store
+         data on the  volume is lost when , EC2 has underlying disk failer , instance is stopped , hibernates and terminates
+  EBS - use case
+      High performance , block storage , ued for both throughput and transactional-intensive workloads
+      Long term persistance store
+      Supports EBS snapshot with automated lifecycle policies for backup to S3
+
+Amazon EFS (Elastic File Share)
+      Serverless used for cloud  services and on-prem resources , can add and remove files without the need to provision and manage capacity for grouth
+      Web service interface , can create and configure file systems quickly and easily
+      Allows paralles access from compute instances to the data , multiple compute modules can access the EFS file system
+      Modules are EC2 , Lambda , ECs adn EKS
+      Supports  NFSv4.1 and NFSv4.0 protocols
+   Standard storage classes  : EFS Stadnard and EFS Standard-IA (infrequent Access) with Multiple Available Zone resilience
+   One Zone storage classes  : EFS One Zone and EFS One Zone-IA  single availability zone support
+      Lifecycle data for EFS moved from standard-class to IA-standard class saving you 92 percent [7.14.30.60.90 days]
+      Files served from same name space for standard class and IA class
+      Support POSIX (Portable Operating System Interface) permissions
+      Supports two perfomance modes and throughput modes (General Purpose with Max I/O. Bursting and Provisioned throughput) - can support performance over 10Gbps and over 500 000 IOPS
+   Security : Build in the VPC us Security Groups , use Access Points and Encryption (AWS KMS and TLS support)
+
