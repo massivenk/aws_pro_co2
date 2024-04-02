@@ -1,0 +1,13 @@
+ two types of Block Storage - Instance Store and Elastic Block Storage (EBS)
+ FSx NetApp ONTAP supports EBS with NetApp API calls and management API
+
+Instance Store (Ephemeral Storage) - use case
+     Temporary storage that changes frequently , buffers , caches , scratch data and other temporary content
+     Data replicated across fleet of instances , loadbalanced pool of web server
+     Non persistance store
+         data on the  volume is lost when , EC2 has underlying disk failer , instance is stopped , hibernates and terminates
+
+EBS
+   High performance , block storage , ued for both throughput and transactional-intensive workloads
+   Long term persistance store
+   Supports EBS snapshot with automated lifecycle policies for backup to S3
